@@ -1,0 +1,30 @@
+{
+  "name": "tweemat",
+  "version": "1.0.0",
+  "authors": [
+    "Daniel Lacy <dan@daniellacy.com>"
+  ],
+  "description": "Pleasantly convert Twitter API entities to formatted HTML.",
+  "main": "./src/tweemat.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "Twitter",
+    "Tweet",
+    "HTML",
+    "Format",
+    "API",
+    "JSON"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
