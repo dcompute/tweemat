@@ -1,6 +1,6 @@
 {
   "name": "tweemat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pleasantly convert Twitter API entities to formatted HTML.",
   "main": "src/tweemat.js",
   "directories": {
