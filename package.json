@@ -8,7 +8,7 @@
     "test": "./test"
   },
   "scripts": {
-    "test": "mocha -R dot"
+    "test": "mocha -R spec"
   },
   "keywords": [
     "Twitter",
