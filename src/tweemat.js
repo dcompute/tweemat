@@ -98,7 +98,7 @@ var Tweemat = (function() {
         this.contentMarkup = this.linkAllOfEntity(type);
       }
     }
-    debugger;
+
     return this.contentMarkup.length ? this.contentMarkup : this.tweet.text;
   };
 
