@@ -64,3 +64,6 @@ tweet, create an object from the Tweemat constructor by passing it a single
 var tweet = new Tweemat(twitterTimeline[tweetIndex]);
 return '<li>' + tweet.linkAllEntities() + '</li>';
 ```
+
+# Documentation
+JSDoc output for Tweemat can be found in the [Wiki](https://github.com/dcompute/tweemat/wiki/JSDoc).

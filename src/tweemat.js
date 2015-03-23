@@ -1,8 +1,10 @@
 var Tweemat = (function() {
   'use strict';
 
-  /*
-    @param {object} tweet
+  /**
+    @global
+    @constructor
+    @param {object} tweet -
       A single tweet JSON representation from the Twitter API.
   */
   function Tweemat(tweet) {
@@ -10,14 +12,16 @@ var Tweemat = (function() {
     this.contentMarkup = '';
   }
 
-  /*
+  /**
     Finds text in a string and replaces it with a link.
 
-    @memberOf Tweemat
+    @global
+    @memberof Tweemat
+    @instance
     @since 1.0.0
-    @param {string} text
+    @param {string} text -
       Full string that will be searched and replaced with links.
-    @param {object} replacements
+    @param {object} replacements -
       Object containing the text to search for, text to replace with,
       and the URL to link to.
     @returns {string}
@@ -30,14 +34,16 @@ var Tweemat = (function() {
     );
   };
 
-  /*
+  /**
     Creates a hash of entity content to find, replace, and link.
 
-    @memberOf Tweemat
+    @global
+    @memberof Tweemat
+    @instance
     @since 1.0.0
-    @param {object} entity
+    @param {object} entity -
       An entity object representation. Eg- an item from tweet.entities.
-    @param {string} type
+    @param {string} type -
       The entity type to handle.
     @returns {object}
       ['search'] is text to find. ['replace'] is text to replace. ['href'] is url.
@@ -81,12 +87,14 @@ var Tweemat = (function() {
     return replacements;
   };
 
-  /*
+  /**
     Links all entities.
 
-    @memberOf Tweemat
+    @global
+    @memberof Tweemat
+    @instance
     @since 1.0.0
-    @returns
+    @returns {string}
       Tweet text with all entities linked.
   */
   Tweemat.prototype.linkAllEntities = function() {
@@ -102,12 +110,14 @@ var Tweemat = (function() {
     return this.contentMarkup.length ? this.contentMarkup : this.tweet.text;
   };
 
-  /*
+  /**
     Links all of a single entity type.
 
-    @memberOf Tweemat
+    @global
+    @memberof Tweemat
+    @instance
     @since 1.0.0
-    @param {string} type
+    @param {string} type -
       Entity type.
     @returns {string}
       Tweet text with all of a single entity type replaced with links.
