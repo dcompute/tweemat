@@ -17,10 +17,6 @@ of being used within Node.JS, AMD, or the browser.
 
 `npm install tweemat --save`
 
-```
-var Tweemat = require('tweemat');
-```
-
 **Bower**
 
 `bower install --save tweemat`
@@ -28,11 +24,16 @@ var Tweemat = require('tweemat');
 **Other**
 
 1. Clone the repo: `git clone https://github.com/dcompute/tweemat.git` or
-  download the latest [ZIP](https://github.com/dcompute/tweemat/archive/master.zip):
+  download the latest [ZIP](https://github.com/dcompute/tweemat/archive/master.zip).
 
-2. Move `./src/tweemat.js` to the desired directory within your project.
+2. Move `./tweemat/src/tweemat.js` to the desired directory within your project.
 
-3. Include the script via unknown means.
+# Adding to Your Project
+**Node.js**
+
+```
+var Tweemat = require('tweemat');
+```
 
 **Browser**
 
@@ -48,6 +49,7 @@ require.config({
     "Tweemat": "path/to/tweemat",
   }
 });
+
 define(["Tweemat"], function (Tweemat) {
   ...
 });
@@ -62,7 +64,3 @@ tweet, create an object from the Tweemat constructor by passing it a single
 var tweet = new Tweemat(twitterTimeline[tweetIndex]);
 return '<li>' + tweet.linkAllEntities() + '</li>';
 ```
-
-## Link All Entities
-Call `#linkAllEntities()` to return a tweet's text with all entities replaced
-with links.
