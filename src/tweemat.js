@@ -6,9 +6,19 @@ var Tweemat = (function() {
     @constructor
     @param {object} tweet -
       A single tweet JSON representation from the Twitter API.
+    @param {object} [options] -
+      Options hash.
+    @param {boolean} [options.linkToBlank=false] -
+      Give links a `target="_blank"` attribute.
   */
-  function Tweemat(tweet) {
+  function Tweemat(tweet, options) {
+    options = options || {};
+
     this.tweet = tweet;
+    this.options = {
+      linkToBlank: options.linkToBlank || false
+    };
+
     this.contentMarkup = '';
   }
 
@@ -28,9 +38,16 @@ var Tweemat = (function() {
       String with the replacements wrapped in anchors.
   */
   Tweemat.prototype.createLink = function(text, replacements) {
+    var elementStart = '<a href="' + replacements.href + '">';
+    var elementEnd = '</a>';
+
+    if (this.options.linkToBlank) {
+      elementStart = elementStart.slice(0, -1) + ' target="_blank">';
+    }
+
     return text.replace(
       replacements.search,
-      '<a href="' + replacements.href + '">' + replacements.replace + '</a>'
+      elementStart + replacements.replace + elementEnd
     );
   };
 

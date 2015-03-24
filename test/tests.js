@@ -13,6 +13,11 @@ describe('Tweemat', function() {
     assert.equal(true, !!tweemat.tweet);
   });
 
+  it('accepts an "options" object argument', function() {
+    var tweemat = new Tweemat(tweet, { linkToBlank: true });
+    assert.equal(true, !!tweemat.options.linkToBlank);
+  });
+
   describe('#createLink', function() {
     var tweemat;
     var spy;
@@ -51,6 +56,26 @@ describe('Tweemat', function() {
         'dev.twitter.com/terms/display-\u2026</a>. Thanks @DavidMuir!';
 
       assert.equal(result, expected);
+    });
+
+    describe('when this.options.linkToBlank is true', function() {
+      var text = tweet.text;
+      var replacements = {
+        search: url.url,
+        replace: url.display_url,
+        href: url.expanded_url
+      };
+
+      it('creates a link with a target="_blank" attribute', function() {
+        var tweemat = new Tweemat(tweet, { linkToBlank: true });
+        var result = tweemat.createLink(text, replacements);
+        var expected =
+          'Along with our new #Twitterbird, we\'ve also updated our Display Guidelines: ' +
+          '<a href="https://dev.twitter.com/terms/display-guidelines" target="_blank">' +
+          'dev.twitter.com/terms/display-\u2026</a>. Thanks @DavidMuir!';
+
+        assert.equal(result, expected);
+      });
     });
   });
 
